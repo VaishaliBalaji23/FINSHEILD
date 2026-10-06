@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="shell-type" content="mobile_tab" />
+    <title>FinShield QUANT — Institutional Quantitative Terminal</title>
+
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <!-- Tailwind CSS with Quantitative Theme Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#1E252B",
+              "surface": "#1E252B",
+              "surface-dim": "#1E252B",
+              "surface-bright": "#556168",
+              "surface-variant": "#46535A",
+              "surface-container-lowest": "#1E252B",
+              "surface-container-low": "#2A343A",
+              "surface-container": "#354149",
+              "surface-container-high": "#3F4C53",
+              "surface-container-highest": "#46545B",
+              "primary": "#E6E9E8",
+              "primary-container": "#647D88",
+              "primary-fixed": "#647D88",
+              "primary-fixed-dim": "#536A74",
+              "on-primary": "#1E252B",
+              "on-primary-container": "#E6E9E8",
+              "secondary": "#C9B986",
+              "secondary-container": "#9D8750",
+              "secondary-fixed": "#D8C995",
+              "secondary-fixed-dim": "#9D8750",
+              "on-secondary": "#1E252B",
+              "on-secondary-container": "#E6E9E8",
+              "tertiary": "#E6E9E8",
+              "tertiary-container": "#6E8A7A",
+              "tertiary-fixed": "#91A99A",
+              "tertiary-fixed-dim": "#6E8A7A",
+              "outline": "#889498",
+              "outline-variant": "#556168",
+              "on-surface": "#E6E9E8",
+              "on-surface-variant": "#B7C0BF",
+              "error": "#824D4E",
+              "error-container": "#5E3839",
+              "on-error": "#E6E9E8",
+              "on-error-container": "#F0D9D9",
+
+              /* Liquid Glass Light Tokens */
+              "text-obsidian": "#E6E9E8",
+              "text-slate": "#D0D7D6",
+              "text-muted": "#B7C0BF",
+              "text-faint": "#889498",
+              "alpha-positive": "#6E8A7A",
+              "stress-negative": "#824D4E",
+              "glass-surface": "#354149",
+              "glass-border": "#556168",
+              "glass-subtle": "#2A343A",
+
+              "blue": {
+                "50": "#2A343A",
+                "100": "#354149",
+                "200": "#46535A",
+                "400": "#889FA8",
+                "500": "#647D88",
+                "600": "#647D88",
+                "700": "#536A74"
+              },
+              "indigo": {
+                "500": "#647D88",
+                "600": "#647D88",
+                "700": "#536A74"
+              },
+              "emerald": {
+                "400": "#91A99A",
+                "500": "#6E8A7A",
+                "600": "#6E8A7A",
+                "700": "#597463",
+                "950": "#26352F"
+              },
+              "rose": {
+                "400": "#B77A7B",
+                "500": "#824D4E",
+                "600": "#824D4E",
+                "800": "#6D4142",
+                "950": "#352224"
+              },
+              "amber": {
+                "400": "#C9B986",
+                "500": "#9D8750",
+                "600": "#9D8750",
+                "950": "#3D3420"
+              },
+              "slate": {
+                "100": "#2A343A",
+                "200": "#46535A",
+                "400": "#889498",
+                "500": "#B7C0BF",
+                "600": "#889498",
+                "700": "#354149"
+              }
+            },
+            borderRadius: {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "2xl": "1rem",
+              "full": "9999px"
+            },
+            spacing: {
+              "space-xs": "0.125rem",
+              "space-sm": "0.25rem",
+              "space-md": "0.5rem",
+              "space-lg": "0.75rem",
+              "space-xl": "1rem",
+              "margin": "0.75rem",
+              "margin-mobile": "0.5rem"
+            },
+            fontFamily: {
+              "headline-xl": ["Inter", "sans-serif"],
+              "headline-lg": ["Inter", "sans-serif"],
+              "headline-md": ["Inter", "sans-serif"],
+              "headline-sm": ["Inter", "sans-serif"],
+              "body-lg": ["Inter", "sans-serif"],
+              "body-md": ["Inter", "sans-serif"],
+              "body-sm": ["Inter", "sans-serif"],
+              "display-lg": ["Inter", "sans-serif"],
+              "metric-lg": ["JetBrains Mono", "monospace"],
+              "metric-md": ["JetBrains Mono", "monospace"],
+              "metric-sm": ["JetBrains Mono", "monospace"],
+              "metric-xl": ["JetBrains Mono", "monospace"],
+              "code-sm": ["JetBrains Mono", "monospace"],
+              "label-caps": ["JetBrains Mono", "monospace"]
+            },
+            fontSize: {
+              "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.005em", fontWeight: "400" }],
+              "body-md": ["13px", { lineHeight: "18px", letterSpacing: "0em", fontWeight: "400" }],
+              "body-lg": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+              "headline-sm": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "600" }],
+              "headline-md": ["16px", { lineHeight: "22px", letterSpacing: "-0.005em", fontWeight: "600" }],
+              "headline-lg": ["20px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "600" }],
+              "headline-xl": ["24px", { lineHeight: "30px", letterSpacing: "-0.015em", fontWeight: "600" }],
+              "display-lg": ["32px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "metric-sm": ["12px", { lineHeight: "16px", letterSpacing: "-0.01em", fontWeight: "500" }],
+              "metric-md": ["14px", { lineHeight: "18px", letterSpacing: "-0.02em", fontWeight: "500" }],
+              "metric-lg": ["20px", { lineHeight: "24px", letterSpacing: "-0.03em", fontWeight: "600" }],
+              "code-sm": ["11px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "400" }],
+              "label-caps": ["10px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "600" }]
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="bg-surface text-on-surface flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container antialiased">
+    <div id="root" class="flex flex-col min-h-screen w-full"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

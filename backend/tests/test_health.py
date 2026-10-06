@@ -1,0 +1,31 @@
+from fastapi.testclient import TestClient
+
+from backend.app.core.config import settings
+from backend.app.main import app
+
+
+def test_health_endpoint() -> None:
+    response = TestClient(app).get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok", "service": "Finshield-api"}
+
+
+def test_runtime_data_paths_are_anchored_to_the_repository() -> None:
+    assert settings.database_file.is_absolute()
+    assert settings.seed_directory.is_absolute()
+
+
+def test_assets_and_nvda_series() -> None:
+    with TestClient(app) as client:
+        assets = client.get("/api/assets")
+        assert assets.status_code == 200
+        assert {asset["symbol"] for asset in assets.json()} == {"BTC-USD", "GC=F", "NVDA"}
+        assert [asset["symbol"] for asset in assets.json()] == ["GC=F", "BTC-USD", "NVDA"]
+
+        series = client.get("/api/assets/NVDA/series")
+        assert series.status_code == 200
+        payload = series.json()
+        assert payload["symbol"] == "NVDA"
+        assert len(payload["data"]) > 2_000
+        assert payload["data"][0]["sma_20"] is None
+        assert payload["data"][19]["sma_20"] is not None
